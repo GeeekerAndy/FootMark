@@ -8,12 +8,19 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@color/MainColor"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.andy.footmark.MainActivity"
     tools:showIn="@layout/app_bar_main">
-
-    <TextView
+    <ExpandableListView
+        android:id="@+id/expandable_list_view"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:layout_height="match_parent"
+        android:divider="@null"
+        android:dividerHeight="3dp"
+        android:scrollbars="none"
+        android:cacheColorHint="#00000000"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true">
+    </ExpandableListView>
 </RelativeLayout>
