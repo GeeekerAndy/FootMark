@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ExpandableListAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.andy.footmark.model.ChildEntity;
@@ -90,7 +91,7 @@ public class MyAdapter extends BaseExpandableListAdapter {
         if(convertView == null) {
             convertView = inflater.inflate(R.layout.group_status_item_date, null);
         }
-        holder.groupName = (TextView)convertView.findViewById(R.id.one_status_name);
+        holder.groupName = (TextView)convertView.findViewById(R.id.tv_one_status_name);
         holder.groupName.setText(groupList.get(groupPosition).getGroupName());
         return convertView;
     }
@@ -118,11 +119,14 @@ public class MyAdapter extends BaseExpandableListAdapter {
         return false;
     }
 
+
     static class GroupViewHolder {
         public TextView groupName;
+        public ImageView foot;
     }
 
     static class ChildViewHolder {
         public TextView childTitle;
+        public ImageView firstPicture;
     }
 }

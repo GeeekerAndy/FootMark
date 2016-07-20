@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.andy.footmark.model.ChildEntity;
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity
     private ExpandableListView expandableListView;
     private List<GroupEntity> lists;
     private MyAdapter adapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,17 +67,23 @@ public class MainActivity extends AppCompatActivity
         adapter = new MyAdapter(this, lists);
         expandableListView = (ExpandableListView)findViewById(R.id.expandable_list_view);
         expandableListView.setAdapter(adapter);
-        expandableListView.setGroupIndicator(null); //去掉默认的箭头
+        expandableListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
+            @Override
+            public boolean onGroupClick(ExpandableListView expandableListView, View view, int i, long l) {
+                //foot.setRotation(foot.getRotation() + 90)
+                return false;
+            }
+        });
     }
 
     //将来从服务器获取账户初始化信息
     private List<GroupEntity> initList() {
         List<GroupEntity> groupList;
         //此处从服务器和本地获取数据
-        String[] groupArray = new String[]{"9月1日", "9月2日", "9月3日"};
+        String[] groupArray = new String[]{"2014.04", "2015.05", "2016.06"};
         String[][] childItemArray = new String[][]{
-                {"活动描述,后面是第一张图片", "活动描述,后面是第一张图片", "活动描述,后面是第一张图片"},
-                {"活动描述,后面是第一张图片"}, {"活动描述,后面是第一张图片", "活动描述,后面是第一张图片"}};
+                {"活动描述,后面是第一张图片1", "活动描述,后面是第一张图片2", "活动描述,后面是第一张图片3"},
+                {"活动描述,后面是第一张图片4"}, {"活动描述,后面是第一张图片5", "活动描述,后面是第一张图片6"}};
         groupList = new ArrayList<>();
         for(int i = 0; i < groupArray.length; i++) {
             GroupEntity groupEntity = new GroupEntity(groupArray[i]);
