@@ -2,9 +2,13 @@ package com.example.andy.footmark;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.GridView;
 import android.widget.ImageView;
+
+/**
+ * Created by andy on 7/22/16.
+ * 展示一个活动图片的Activity
+ */
 
 public class ShowPhotosActivity extends AppCompatActivity {
     private GridView showPhotos;

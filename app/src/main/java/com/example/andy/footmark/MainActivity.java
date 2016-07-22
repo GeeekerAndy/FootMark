@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.NotificationCompat;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -14,10 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
-import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.example.andy.footmark.model.ChildEntity;
 import com.example.andy.footmark.model.GroupEntity;
@@ -32,22 +28,23 @@ public class MainActivity extends AppCompatActivity
     private List<GroupEntity> lists;
     private MyAdapter adapter;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initView();
+
+        initView(); //初始化界面
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        //此按钮创建或加入一个活动
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {    //添加活动，或者加入一个活动
-                Snackbar.make(view, "此处添加活动，或者加入一个活动", Snackbar.LENGTH_LONG)
+            public void onClick(View view) {
+                Snackbar.make(view, "此处创建活动，或者加入一个活动", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
-                //Toast.makeText(MainActivity.this, "此处添加活动，或者加入一个活动", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -62,7 +59,10 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-    //初始化界面
+    /**
+     * 初始化ExpandableListView界面
+     */
+
     private void initView() {
         lists = initList();
         adapter = new MyAdapter(this, lists);
@@ -86,11 +86,16 @@ public class MainActivity extends AppCompatActivity
         });
     }
 
-    //将来从服务器获取账户初始化信息
+    /**
+     * 获取初始化ExpandableListView的一级二级目录的内容
+     * 将来从服务器和本地获取信息
+     */
+
     private List<GroupEntity> initList() {
         List<GroupEntity> groupList;
-        //此处从服务器和本地获取数据
+        //一级目录内容
         String[] groupArray = new String[]{"2014.04", "2015.05", "2016.06"};
+        //二级目录内容
         String[][] childItemArray = new String[][]{
                 {"活动描述,后面是第一张图片1", "活动描述,后面是第一张图片2", "活动描述,后面是第一张图片3"},
                 {"活动描述,后面是第一张图片4"}, {"活动描述,后面是第一张图片5", "活动描述,后面是第一张图片6"}};

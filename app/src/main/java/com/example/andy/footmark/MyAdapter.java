@@ -1,13 +1,11 @@
 package com.example.andy.footmark;
 
-import android.app.ExpandableListActivity;
+
 import android.content.Context;
-import android.database.DataSetObserver;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
-import android.widget.ExpandableListAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,7 +16,9 @@ import java.util.List;
 
 /**
  * Created by andy on 7/19/16.
+ * ExpandableListView的适配器
  */
+
 public class MyAdapter extends BaseExpandableListAdapter {
     private LayoutInflater inflater = null;
     private List<GroupEntity> groupList;
@@ -37,6 +37,7 @@ public class MyAdapter extends BaseExpandableListAdapter {
     /**
      * 返回一级目录Group的总数
      */
+
     @Override
     public int getGroupCount() {
         return groupList.size();
@@ -45,6 +46,7 @@ public class MyAdapter extends BaseExpandableListAdapter {
     /**
      * 返回二级目录Child的总数
      */
+
     @Override
     public int getChildrenCount(int groupPosition) {
         if(groupList.get(groupPosition).getChildEntities() == null) {
@@ -57,6 +59,7 @@ public class MyAdapter extends BaseExpandableListAdapter {
     /**
      * 获取一级目录Group的内容
      */
+
     @Override
     public Object getGroup(int groupPosition) {
         return groupList.get(groupPosition);
@@ -65,6 +68,7 @@ public class MyAdapter extends BaseExpandableListAdapter {
     /**
      * 获取二级目录Child的内容
      */
+
     @Override
     public ChildEntity getChild(int groupPosition, int childPosition) {
         return groupList.get(groupPosition).getChildEntities().get(childPosition);
@@ -88,6 +92,7 @@ public class MyAdapter extends BaseExpandableListAdapter {
     /**
      * 获取一级目录Group的view
      */
+
     @Override
     public View getGroupView(final int groupPosition,boolean isExpanded, View convertView, ViewGroup parent) {
         GroupViewHolder holder = new GroupViewHolder();
@@ -102,6 +107,7 @@ public class MyAdapter extends BaseExpandableListAdapter {
     /**
      * 获取二级目录Group的view
      */
+
     @Override
     public View getChildView(final int groupPosition, final int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
         ChildViewHolder viewHolder = null;
@@ -122,20 +128,23 @@ public class MyAdapter extends BaseExpandableListAdapter {
 
     @Override
     public boolean isChildSelectable(int i, int i1) {
-        //点击二级目录有反应
+        //true为点击二级目录有反应
         return true;
     }
 
+    /**
+     * Group类
+     */
 
-    //Group类
     static class GroupViewHolder {
         public TextView groupName;
-        public ImageView foot;
     }
 
-    //Child类
+    /**
+     * Child类
+     */
+
     static class ChildViewHolder {
         public TextView childTitle;
-        public ImageView firstPicture;
     }
 }

@@ -8,6 +8,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.andy.footmark.ShowPhotosActivity">
+
     <GridView
         android:id="@+id/gv_show_photos"
         android:layout_width="match_parent"
