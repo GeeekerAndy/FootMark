@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="#FFFFFF"
+    android:background="@drawable/landscape_little"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.andy.footmark.MainActivity"
     tools:showIn="@layout/app_bar_main">

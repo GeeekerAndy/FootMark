@@ -1,5 +1,6 @@
 package com.example.andy.footmark;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -70,7 +71,16 @@ public class MainActivity extends AppCompatActivity
         expandableListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
             @Override
             public boolean onGroupClick(ExpandableListView expandableListView, View view, int i, long l) {
-                //foot.setRotation(foot.getRotation() + 90)
+                return false;
+            }
+        });
+        expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+            @Override
+            public boolean onChildClick(ExpandableListView expandableListView, View view, int i, int i1, long l) {
+                Intent intent = new Intent(MainActivity.this, ShowPhotosActivity.class);
+                startActivity(intent);
+
+
                 return false;
             }
         });

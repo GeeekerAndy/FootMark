@@ -85,6 +85,9 @@ public class MyAdapter extends BaseExpandableListAdapter {
         return false;
     }
 
+    /**
+     * 获取一级目录Group的view
+     */
     @Override
     public View getGroupView(final int groupPosition,boolean isExpanded, View convertView, ViewGroup parent) {
         GroupViewHolder holder = new GroupViewHolder();
@@ -96,6 +99,9 @@ public class MyAdapter extends BaseExpandableListAdapter {
         return convertView;
     }
 
+    /**
+     * 获取二级目录Group的view
+     */
     @Override
     public View getChildView(final int groupPosition, final int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
         ChildViewHolder viewHolder = null;
@@ -116,15 +122,18 @@ public class MyAdapter extends BaseExpandableListAdapter {
 
     @Override
     public boolean isChildSelectable(int i, int i1) {
-        return false;
+        //点击二级目录有反应
+        return true;
     }
 
 
+    //Group类
     static class GroupViewHolder {
         public TextView groupName;
         public ImageView foot;
     }
 
+    //Child类
     static class ChildViewHolder {
         public TextView childTitle;
         public ImageView firstPicture;
