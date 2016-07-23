@@ -6,7 +6,6 @@ import java.util.List;
  * Created by andy on 7/19/16.
  * ExpandableListView中的一级目录对象
  */
-
 public class GroupEntity {
 
     public String groupName;

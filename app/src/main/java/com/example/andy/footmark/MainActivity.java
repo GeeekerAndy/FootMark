@@ -62,7 +62,6 @@ public class MainActivity extends AppCompatActivity
     /**
      * 初始化ExpandableListView界面
      */
-
     private void initView() {
         lists = initList();
         adapter = new MyAdapter(this, lists);
@@ -90,7 +89,6 @@ public class MainActivity extends AppCompatActivity
      * 获取初始化ExpandableListView的一级二级目录的内容
      * 将来从服务器和本地获取信息
      */
-
     private List<GroupEntity> initList() {
         List<GroupEntity> groupList;
         //一级目录内容
