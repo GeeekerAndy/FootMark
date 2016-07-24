@@ -14,10 +14,10 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        android:src="@drawable/ic_account_circle_white_48dp" />
+        android:src="@drawable/ic_account_circle_white_48px" />
 
     <TextView
         android:layout_width="match_parent"

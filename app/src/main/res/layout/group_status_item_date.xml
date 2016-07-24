@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_gravity="center"
-        android:text="Year + Month"
+        android:text="年 + 月"
         android:gravity="center"/>
 
 </LinearLayout>

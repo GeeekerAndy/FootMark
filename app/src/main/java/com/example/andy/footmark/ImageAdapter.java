@@ -16,18 +16,6 @@ import android.widget.ImageView;
 public class ImageAdapter extends BaseAdapter {
 
     Integer[] imageIDs = {
-//            R.drawable.bkg_01_january,
-//            R.drawable.bkg_02_february,
-//            R.drawable.bkg_03_march,
-//            R.drawable.bkg_04_april,
-//            R.drawable.bkg_05_may,
-//            R.drawable.bkg_06_june,
-//            R.drawable.bkg_07_july,
-//            R.drawable.bkg_08_august,
-//            R.drawable.bkg_09_september,
-//            R.drawable.bkg_10_october,
-//            R.drawable.bkg_11_november,
-//            R.drawable.bkg_12_december
             R.drawable.bkg_01_january_vertical,
             R.drawable.bkg_03_march_vertical,
             R.drawable.bkg_01_january_vertical,
@@ -71,6 +59,15 @@ public class ImageAdapter extends BaseAdapter {
         return position;
     }
 
+    /**
+     * 获取每张图片的id
+     * @param position
+     * @return
+     */
+    public Integer getImageId(int position) {
+        return imageIDs[position];
+    }
+
     public View getView(int position, View convertView, ViewGroup parent) {
         ImageView imageView;
         if(convertView == null) {
@@ -82,12 +79,6 @@ public class ImageAdapter extends BaseAdapter {
             imageView = (ImageView)convertView;
         }
         imageView.setImageResource(imageIDs[position]);
-//        imageView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//            }
-//        });
         return imageView;
     }
 }

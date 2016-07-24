@@ -25,6 +25,7 @@
             android:text="对照片的描述,后面显示第一张照片"
             android:gravity="center" />
         <ImageView
+            android:id="@+id/iv_first_image"
             android:layout_width="@dimen/union_height"
             android:layout_height="@dimen/union_height"
             android:layout_gravity="right"
