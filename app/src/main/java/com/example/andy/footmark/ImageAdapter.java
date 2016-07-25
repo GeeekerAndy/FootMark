@@ -11,6 +11,7 @@ import android.widget.ImageView;
 
 /**
  * Created by andy on 7/23/16.
+ * Image adapter for adding images to GridView.
  * 图片适配器，向GridView中添加图片
  */
 public class ImageAdapter extends BaseAdapter {
@@ -41,6 +42,7 @@ public class ImageAdapter extends BaseAdapter {
     }
 
     /**
+     * Return the count of images.
      * 返回图片数量
      * @return
      */
@@ -49,6 +51,7 @@ public class ImageAdapter extends BaseAdapter {
     }
 
     /**
+     * Return an ID of the item
      * 返回一个item的ID
      */
     public Object getItem(int position) {
@@ -60,6 +63,7 @@ public class ImageAdapter extends BaseAdapter {
     }
 
     /**
+     * Get the ID of every image.
      * 获取每张图片的id
      * @param position
      * @return

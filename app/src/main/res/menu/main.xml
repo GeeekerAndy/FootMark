@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <item
         android:id="@+id/ascending"
         android:orderInCategory="90"
-        android:title="升序"
+        android:title="Ascending"
         app:showAsAction="never"/>
     <item
         android:id="@+id/descending"
         android:orderInCategory="95"
-        android:title="降序"
+        android:title="Descending"
         app:showAsAction="never"/>
+
 </menu>

@@ -2,6 +2,7 @@ package com.example.andy.footmark.model;
 
 /**
  * Created by andy on 7/19/16.
+ * ChildItem in ExpandableListView
  * ExpandableListView中的二级目录对象
  */
 public class ChildEntity {

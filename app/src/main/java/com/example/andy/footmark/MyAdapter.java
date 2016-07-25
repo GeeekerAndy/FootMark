@@ -15,6 +15,7 @@ import java.util.List;
 
 /**
  * Created by andy on 7/19/16.
+ * Adapter of ExpandableListView.
  * ExpandableListView的适配器
  */
 public class MyAdapter extends BaseExpandableListAdapter {
@@ -23,6 +24,7 @@ public class MyAdapter extends BaseExpandableListAdapter {
     private Context context;
 
     /**
+     * Construction method.
      * 构造方法
      */
     public MyAdapter(Context context, List<GroupEntity> group_list) {
@@ -32,6 +34,7 @@ public class MyAdapter extends BaseExpandableListAdapter {
     }
 
     /**
+     * Return total number of GroupItems.
      * 返回一级目录Group的总数
      */
     @Override
@@ -40,6 +43,7 @@ public class MyAdapter extends BaseExpandableListAdapter {
     }
 
     /**
+     * Return total number of ChildItems.
      * 返回二级目录Child的总数
      */
     @Override
@@ -52,6 +56,7 @@ public class MyAdapter extends BaseExpandableListAdapter {
     }
 
     /**
+     * Get the content of GroupItem.
      * 获取一级目录Group的内容
      */
     @Override
@@ -60,6 +65,7 @@ public class MyAdapter extends BaseExpandableListAdapter {
     }
 
     /**
+     * Get the content of ChildItem
      * 获取二级目录Child的内容
      */
     @Override
@@ -83,6 +89,7 @@ public class MyAdapter extends BaseExpandableListAdapter {
     }
 
     /**
+     * Get the view of GroupItem.
      * 获取一级目录Group的view
      */
     @Override
@@ -97,7 +104,8 @@ public class MyAdapter extends BaseExpandableListAdapter {
     }
 
     /**
-     * 获取二级目录Group的view
+     * Get the view of ChildItem
+     * 获取二级目录Child的view
      */
     @Override
     public View getChildView(final int groupPosition, final int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
@@ -119,19 +127,21 @@ public class MyAdapter extends BaseExpandableListAdapter {
 
     @Override
     public boolean isChildSelectable(int i, int i1) {
-        //true为点击二级目录有反应
+        //If true, child item can be selected. true为点击二级目录有反应
         return true;
     }
 
     /**
-     * Group类
+     * Content in Group view.
+     * Group内容
      */
     static class GroupViewHolder {
         public TextView groupName;
     }
 
     /**
-     * Child类
+     * Content in Child view.
+     * Child内容
      */
     static class ChildViewHolder {
         public TextView childTitle;
