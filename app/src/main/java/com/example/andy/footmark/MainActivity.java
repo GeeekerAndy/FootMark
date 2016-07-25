@@ -47,12 +47,19 @@ public class MainActivity extends AppCompatActivity
         toolbar.setOverflowIcon(drawable);  //Change Overflow icon. 更换Overflow图标
 
         //Create or add an activity. 此按钮创建或加入一个活动
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        final FloatingActionsMenu menuMultipleActions = (FloatingActionsMenu) findViewById(R.id.multiple_actions);
+        final com.getbase.floatingactionbutton.FloatingActionButton actionA = (com.getbase.floatingactionbutton.FloatingActionButton) findViewById(R.id.action_a);
+        actionA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "此处创建活动，或者加入一个活动", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                actionA.setTitle("Action A clicked");
+            }
+        });
+        final com.getbase.floatingactionbutton.FloatingActionButton actionB = (com.getbase.floatingactionbutton.FloatingActionButton) findViewById(R.id.action_b);
+        actionB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                actionB.setTitle("Action B clicked");
             }
         });
 
