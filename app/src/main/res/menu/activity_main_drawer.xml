@@ -7,9 +7,9 @@
             android:icon="@drawable/ic_account_circle_white_48px"
             android:title="Account" />
         <item
-            android:id="@+id/nav_group"
+            android:id="@+id/nav_groups"
             android:icon="@drawable/ic_group_white_48px"
-            android:title="Group"/>
+            android:title="Groups"/>
         <item
             android:id="@+id/nav_setting"
             android:icon="@drawable/ic_settings_white_48px"

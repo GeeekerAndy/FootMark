@@ -1,6 +1,8 @@
 package com.example.andy.footmark;
 
 import android.app.Dialog;
+import android.graphics.drawable.Drawable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -31,6 +33,9 @@ public class ShowPhotosActivity extends AppCompatActivity {
         //Customized Toolbar. 自定义Toolbar
         Toolbar showPhotoToolBar = (Toolbar)findViewById(R.id.tb_show_photos);
         setSupportActionBar(showPhotoToolBar);
+        Drawable drawable = ContextCompat.getDrawable(getApplicationContext(),R.drawable.ic_add_white_48px);
+        showPhotoToolBar.setOverflowIcon(drawable);
+
 
         // Get a support ActionBar corresponding to this toolbar. 获取响应toolbar的兼容模式的ActionBar
         ActionBar actionBar = getSupportActionBar();

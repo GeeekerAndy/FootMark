@@ -171,9 +171,11 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_account) {
-
-        } else if (id == R.id.nav_group) {
-
+            Intent intent = new Intent(MainActivity.this, AccountActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.nav_groups) {
+            Intent intent = new Intent(MainActivity.this, GroupActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_setting) {
 
         }
