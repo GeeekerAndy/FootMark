@@ -50,7 +50,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             fab:fab_colorNormal="@color/white"
-            fab:fab_title="加入活动"
+            fab:fab_title="加入群组"
             fab:fab_colorPressed="@color/white_pressed"/>
 
     </com.getbase.floatingactionbutton.FloatingActionsMenu>

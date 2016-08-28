@@ -7,6 +7,8 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
@@ -35,7 +37,6 @@ public class ShowPhotosActivity extends AppCompatActivity {
         setSupportActionBar(showPhotoToolBar);
         Drawable drawable = ContextCompat.getDrawable(getApplicationContext(),R.drawable.ic_add_white_48px);
         showPhotoToolBar.setOverflowIcon(drawable);
-
 
         // Get a support ActionBar corresponding to this toolbar. 获取响应toolbar的兼容模式的ActionBar
         ActionBar actionBar = getSupportActionBar();
@@ -75,6 +76,24 @@ public class ShowPhotosActivity extends AppCompatActivity {
                 dialog.show();
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_add_photos, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+
+        if(id == R.id.add_photos) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
 }

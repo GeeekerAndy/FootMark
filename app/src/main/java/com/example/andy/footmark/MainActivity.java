@@ -1,5 +1,7 @@
 package com.example.andy.footmark;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.ShapeDrawable;
@@ -8,6 +10,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -17,6 +20,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 import android.widget.ExpandableListView;
 import android.widget.Toast;
 
@@ -44,22 +48,51 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         Drawable drawable = ContextCompat.getDrawable(getApplicationContext(),R.drawable.ic_sort_white_48px);
         setSupportActionBar(toolbar);
-        toolbar.setOverflowIcon(drawable);  //Change Overflow icon. 更换Overflow图标
+        toolbar.setOverflowIcon(drawable); //Change Overflow icon. 更换Overflow图标
 
-        //Create or add an activity. 此按钮创建或加入一个活动
+        //Create or menu_add_photos an activity. 此按钮创建或加入一个活动
         final FloatingActionsMenu menuMultipleActions = (FloatingActionsMenu) findViewById(R.id.multiple_actions);
         final com.getbase.floatingactionbutton.FloatingActionButton actionA = (com.getbase.floatingactionbutton.FloatingActionButton) findViewById(R.id.action_a);
         actionA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                actionA.setTitle("Action A clicked");
-            }
+                new AlertDialog.Builder(MainActivity.this).setTitle("选择群组").setSingleChoiceItems(
+                        new String[]{"群组1", "群组2", "群组3", "群组4", "群组5", "群组6", "群组7", "群组8", "群组9"}, 0,
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+//                                dialogInterface.dismiss();
+                            }
+                        }).setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //Confirm the group
+                    }
+                }).setNegativeButton("取消", null).show();
+                menuMultipleActions.collapse();
+             }
         });
         final com.getbase.floatingactionbutton.FloatingActionButton actionB = (com.getbase.floatingactionbutton.FloatingActionButton) findViewById(R.id.action_b);
         actionB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                actionB.setTitle("Action B clicked");
+                EditText editText = new EditText(MainActivity.this);
+                editText.setMaxLines(1);
+                editText.setHint("12345678");
+                editText.setInputType(android.text.InputType.TYPE_CLASS_TEXT | android.text.InputType.TYPE_TEXT_VARIATION_EMAIL_SUBJECT);
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                builder.setTitle("群组ID");
+                builder.setView(editText);
+                builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //Get the Group ID
+                    }
+                });
+                builder.setNegativeButton("取消", null);
+                builder.show();
+                menuMultipleActions.collapse();
             }
         });
 
