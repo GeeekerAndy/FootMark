@@ -1,16 +1,12 @@
 package com.example.andy.footmark;
 
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
-import android.graphics.drawable.ShapeDrawable;
-import android.graphics.drawable.shapes.OvalShape;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
+import android.text.InputType;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -36,7 +32,7 @@ public class MainActivity extends AppCompatActivity
 
     private ExpandableListView expandableListView;
     private List<GroupEntity> lists;
-    private MyAdapter adapter;
+    private ExpandableLIstAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,29 +52,53 @@ public class MainActivity extends AppCompatActivity
         actionA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new AlertDialog.Builder(MainActivity.this).setTitle("选择群组").setSingleChoiceItems(
-                        new String[]{"群组1", "群组2", "群组3", "群组4", "群组5", "群组6", "群组7", "群组8", "群组9"}, 0,
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-//                                dialogInterface.dismiss();
-                            }
-                        }).setPositiveButton("确定", new DialogInterface.OnClickListener() {
+
+                String[] groupNames = {"群组1", "群组2", "群组3", "群组4", "群组5", "群组6", "群组7", "群组8", "群组9"};
+
+                final AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                builder.setTitle("选择群组");
+                builder.setSingleChoiceItems(groupNames, 0, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        //Confirm the group
+
                     }
-                }).setNegativeButton("取消", null).show();
+                });
+                builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int i) {
+
+                        EditText editText = new EditText(MainActivity.this);
+                        editText.setMaxLines(1);
+                        editText.setHint("活动名称");
+                        editText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_EMAIL_SUBJECT);
+
+                        AlertDialog.Builder subBuilder = new AlertDialog.Builder(MainActivity.this);
+                        subBuilder.setTitle("创建活动");
+                        subBuilder.setView(editText);
+                        subBuilder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Toast.makeText(MainActivity.this, "创建成功", Toast.LENGTH_LONG).show();
+                            }
+                        });
+                        subBuilder.show();
+                    }
+                });
+                builder.setNegativeButton("取消", null);
+                builder.show();
+
                 menuMultipleActions.collapse();
+
              }
         });
         final com.getbase.floatingactionbutton.FloatingActionButton actionB = (com.getbase.floatingactionbutton.FloatingActionButton) findViewById(R.id.action_b);
         actionB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 EditText editText = new EditText(MainActivity.this);
                 editText.setMaxLines(1);
-                editText.setHint("12345678");
+                editText.setHint("请输入ID");
                 editText.setInputType(android.text.InputType.TYPE_CLASS_TEXT | android.text.InputType.TYPE_TEXT_VARIATION_EMAIL_SUBJECT);
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
@@ -87,12 +107,14 @@ public class MainActivity extends AppCompatActivity
                 builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        //Get the Group ID
+                        Toast.makeText(MainActivity.this, "加入成功", Toast.LENGTH_LONG).show();
                     }
                 });
                 builder.setNegativeButton("取消", null);
                 builder.show();
+
                 menuMultipleActions.collapse();
+
             }
         });
 
@@ -113,9 +135,12 @@ public class MainActivity extends AppCompatActivity
      */
     private void initView() {
         lists = initList();
-        adapter = new MyAdapter(this, lists);
+        adapter = new ExpandableLIstAdapter(this, lists);
         expandableListView = (ExpandableListView)findViewById(R.id.expandable_list_view);
         expandableListView.setAdapter(adapter);
+        for(int i = 0; i < adapter.getGroupCount(); i++) {
+            expandableListView.expandGroup(i);
+        }
         expandableListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
             @Override
             public boolean onGroupClick(ExpandableListView expandableListView, View view, int i, long l) {

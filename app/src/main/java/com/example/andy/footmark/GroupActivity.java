@@ -110,7 +110,7 @@ public class GroupActivity extends AppCompatActivity {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     //Get the Group ID
-                    Toast.makeText(GroupActivity.this, "你的ID是: 123456", Toast.LENGTH_LONG).show();
+                    Toast.makeText(GroupActivity.this, "创建成功！\n您的ID是: 123456", Toast.LENGTH_LONG).show();
                 }
             });
             builder.setNegativeButton("取消", null);
@@ -129,7 +129,7 @@ public class GroupActivity extends AppCompatActivity {
             builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    Toast.makeText(GroupActivity.this, "成功加入", Toast.LENGTH_LONG).show();
+                    Toast.makeText(GroupActivity.this, "加入成功", Toast.LENGTH_LONG).show();
                 }
             });
             builder.setNegativeButton("取消", null);

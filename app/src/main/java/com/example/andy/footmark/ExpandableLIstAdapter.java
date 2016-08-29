@@ -18,7 +18,7 @@ import java.util.List;
  * Adapter of ExpandableListView.
  * ExpandableListView的适配器
  */
-public class MyAdapter extends BaseExpandableListAdapter {
+public class ExpandableLIstAdapter extends BaseExpandableListAdapter {
     private LayoutInflater inflater = null;
     private List<GroupEntity> groupList;
     private Context context;
@@ -27,7 +27,7 @@ public class MyAdapter extends BaseExpandableListAdapter {
      * Construction method.
      * 构造方法
      */
-    public MyAdapter(Context context, List<GroupEntity> group_list) {
+    public ExpandableLIstAdapter(Context context, List<GroupEntity> group_list) {
         this.context = context;
         this.groupList = group_list;
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
