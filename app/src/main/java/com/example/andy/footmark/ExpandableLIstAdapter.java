@@ -19,6 +19,7 @@ import java.util.List;
  * ExpandableListView的适配器
  */
 public class ExpandableLIstAdapter extends BaseExpandableListAdapter {
+
     private LayoutInflater inflater = null;
     private List<GroupEntity> groupList;
     private Context context;

@@ -1,6 +1,7 @@
 package com.example.andy.footmark;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
@@ -35,19 +36,18 @@ public class ShowPhotosActivity extends AppCompatActivity {
         //Customized Toolbar. 自定义Toolbar
         Toolbar showPhotoToolBar = (Toolbar)findViewById(R.id.tb_show_photos);
         setSupportActionBar(showPhotoToolBar);
-        Drawable drawable = ContextCompat.getDrawable(getApplicationContext(),R.drawable.ic_add_white_48px);
-        showPhotoToolBar.setOverflowIcon(drawable);
 
         // Get a support ActionBar corresponding to this toolbar. 获取响应toolbar的兼容模式的ActionBar
         ActionBar actionBar = getSupportActionBar();
 
-        //Enable the UP button 使后续按钮生效
+        //Enable the UP button 使返回按钮生效
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-        //You do not need to catch the up action in the activity's onOptionsItemSelected() method.
-        // Instead, that method should call its superclass, as shown in Respond to Actions.
-        // The superclass method responds to the Up selection by navigating to the parent activity,
-        // as specified in the app manifest.
+        //官方推荐不要在toolbar中添加监听返回上一级
+//        You do not need to catch the up action in the activity's onOptionsItemSelected() method.
+//         Instead, that method should call its superclass, as shown in Respond to Actions.
+//         The superclass method responds to the Up selection by navigating to the parent activity,
+//         as specified in the app manifest.
 //        showPhotoToolBar.setNavigationOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -55,6 +55,8 @@ public class ShowPhotosActivity extends AppCompatActivity {
 //            }
 //        });
 
+
+        //显示一个活动的图片
         imageAdapter = new ImageAdapter(this);
         gridView = (GridView)findViewById(R.id.gv_show_photos);
         gridView.setAdapter(imageAdapter);
@@ -67,13 +69,19 @@ public class ShowPhotosActivity extends AppCompatActivity {
                 dialog.setContentView(R.layout.show_one_picture);
                 onePicture = (ImageView)dialog.findViewById(R.id.iv_preview_image);
                 onePicture.setImageResource(imageAdapter.getImageId(position));
-                onePicture.setOnClickListener(new View.OnClickListener() {
+                onePicture.setOnClickListener(new View.OnClickListener() {      //点击一张图片后显示
                     @Override
                     public void onClick(View view) {
                         dialog.dismiss();
                     }
                 });
                 dialog.show();
+            }
+        });
+        gridView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                return false;
             }
         });
     }
@@ -89,7 +97,18 @@ public class ShowPhotosActivity extends AppCompatActivity {
 
         int id = item.getItemId();
 
-        if(id == R.id.add_photos) {
+        if(id == R.id.item_add_photos) {
+
+            //Select pictures from gallery. 从相册选择图片
+            Intent intent = new Intent();
+            intent.setType("image/*");
+            intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+            intent.setAction(Intent.ACTION_GET_CONTENT);
+            startActivityForResult(Intent.createChooser(intent, "Select Picture"), 1);
+
+            return true;
+        }
+        if(id == R.id.item_delete_photos) {
             return true;
         }
 

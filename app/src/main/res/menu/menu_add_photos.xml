@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/item_add_photos"
+        android:title="添加照片"
+        app:showAsAction="never"
+        android:orderInCategory="100"/>
+    <item
+        android:id="@+id/item_delete_photos"
+        android:title="删除照片"
+        app:showAsAction="never"
+        android:orderInCategory="110"/>
+
+</menu>

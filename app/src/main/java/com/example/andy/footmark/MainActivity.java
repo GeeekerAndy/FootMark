@@ -27,6 +27,11 @@ import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 简介：FootMark是一款照片共享应用，用户创建/加入群组，创建/加入活动，同一群组成员共享活动照片
+ * 作者：贾胄，姜燕，刘培庆，王庆伟，吴光楠，赵一帆（字母顺序，不分先后）
+ * Created by andy on 7/17/16.
+ */
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -46,12 +51,12 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
         toolbar.setOverflowIcon(drawable); //Change Overflow icon. 更换Overflow图标
 
-        //Create or menu_add_photos an activity. 此按钮创建或加入一个活动
+        //Create or join an activity. 此按钮创建或加入一个活动
         final FloatingActionsMenu menuMultipleActions = (FloatingActionsMenu) findViewById(R.id.multiple_actions);
         final com.getbase.floatingactionbutton.FloatingActionButton actionA = (com.getbase.floatingactionbutton.FloatingActionButton) findViewById(R.id.action_a);
         actionA.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view) {    //选择群组
 
                 String[] groupNames = {"群组1", "群组2", "群组3", "群组4", "群组5", "群组6", "群组7", "群组8", "群组9"};
 
@@ -63,7 +68,7 @@ public class MainActivity extends AppCompatActivity
 
                     }
                 });
-                builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {     //创建活动
                     @Override
                     public void onClick(DialogInterface dialog, int i) {
 
@@ -94,7 +99,7 @@ public class MainActivity extends AppCompatActivity
         final com.getbase.floatingactionbutton.FloatingActionButton actionB = (com.getbase.floatingactionbutton.FloatingActionButton) findViewById(R.id.action_b);
         actionB.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view) {    //加入群组
 
                 EditText editText = new EditText(MainActivity.this);
                 editText.setMaxLines(1);
@@ -138,12 +143,11 @@ public class MainActivity extends AppCompatActivity
         adapter = new ExpandableLIstAdapter(this, lists);
         expandableListView = (ExpandableListView)findViewById(R.id.expandable_list_view);
         expandableListView.setAdapter(adapter);
-        for(int i = 0; i < adapter.getGroupCount(); i++) {
-            expandableListView.expandGroup(i);
-        }
+        expandableListView.expandGroup(adapter.getGroupCount() - 1, true); //Expand the last group as default. 默认展开最后一组
         expandableListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
             @Override
             public boolean onGroupClick(ExpandableListView expandableListView, View view, int i, long l) {
+
                 return false;
             }
         });
@@ -152,7 +156,6 @@ public class MainActivity extends AppCompatActivity
             public boolean onChildClick(ExpandableListView expandableListView, View view, int i, int i1, long l) {
                 Intent intent = new Intent(MainActivity.this, ShowPhotosActivity.class);
                 startActivity(intent);
-
 
                 return false;
             }
@@ -222,6 +225,11 @@ public class MainActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * 侧边栏
+     * @param item
+     * @return
+     */
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
