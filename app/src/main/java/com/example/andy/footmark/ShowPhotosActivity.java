@@ -101,6 +101,7 @@ public class ShowPhotosActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if(id == R.id.item_add_photos) {
+            //从相册添加图片
             int numberOfImageToSelect = 10;
             Intent intent = new Intent(this, AlbumSelectActivity.class);
             intent.putExtra(Constants.INTENT_EXTRA_LIMIT, numberOfImageToSelect);
@@ -117,7 +118,7 @@ public class ShowPhotosActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if(requestCode == Constants.REQUEST_CODE && resultCode ==  RESULT_OK && data != null) {
-            //The array list has the image paths of the selected images
+            //The array list has the image paths of the selected images 返回从相册选取的图片
             ArrayList<com.darsh.multipleimageselect.models.Image> images = data.getParcelableArrayListExtra(Constants.INTENT_EXTRA_IMAGES);
         }
     }
