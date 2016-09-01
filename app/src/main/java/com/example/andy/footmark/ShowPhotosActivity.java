@@ -2,8 +2,6 @@ package com.example.andy.footmark;
 
 import android.app.Dialog;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,6 +13,11 @@ import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
+
+import com.darsh.multipleimageselect.activities.AlbumSelectActivity;
+import com.darsh.multipleimageselect.helpers.Constants;
+
+import java.util.ArrayList;
 
 /**
  * Created by andy on 7/22/16.
@@ -98,14 +101,10 @@ public class ShowPhotosActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if(id == R.id.item_add_photos) {
-
-            //Select pictures from gallery. 从相册选择图片
-            Intent intent = new Intent();
-            intent.setType("image/*");
-            intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
-            intent.setAction(Intent.ACTION_GET_CONTENT);
-            startActivityForResult(Intent.createChooser(intent, "Select Picture"), 1);
-
+            int numberOfImageToSelect = 10;
+            Intent intent = new Intent(this, AlbumSelectActivity.class);
+            intent.putExtra(Constants.INTENT_EXTRA_LIMIT, numberOfImageToSelect);
+            startActivityForResult(intent, Constants.REQUEST_CODE);
             return true;
         }
         if(id == R.id.item_delete_photos) {
@@ -115,4 +114,11 @@ public class ShowPhotosActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(requestCode == Constants.REQUEST_CODE && resultCode ==  RESULT_OK && data != null) {
+            //The array list has the image paths of the selected images
+            ArrayList<com.darsh.multipleimageselect.models.Image> images = data.getParcelableArrayListExtra(Constants.INTENT_EXTRA_IMAGES);
+        }
+    }
 }
