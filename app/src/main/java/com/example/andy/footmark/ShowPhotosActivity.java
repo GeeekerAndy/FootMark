@@ -6,6 +6,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.DragEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -13,7 +14,9 @@ import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.darsh.multipleimageselect.activities.AlbumSelectActivity;
 import com.darsh.multipleimageselect.helpers.Constants;
 
@@ -71,7 +74,11 @@ public class ShowPhotosActivity extends AppCompatActivity {
                 dialog.setCancelable(true);
                 dialog.setContentView(R.layout.show_one_picture);
                 onePicture = (ImageView)dialog.findViewById(R.id.iv_preview_image);
-                onePicture.setImageResource(imageAdapter.getImageId(position));
+//                onePicture.setImageResource(imageAdapter.getImageId(position));
+                Glide.with(ShowPhotosActivity.this)
+                        .load(imageAdapter.getImageUrl(position))
+                        .crossFade()
+                        .into(onePicture);
                 onePicture.setOnClickListener(new View.OnClickListener() {      //点击一张图片后显示
                     @Override
                     public void onClick(View view) {
@@ -87,6 +94,15 @@ public class ShowPhotosActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+        //刷新照片
+//        SwipeRefreshLayout refreshPhotos = (SwipeRefreshLayout)findViewById(R.id.srl_refresh_photos);
+//        refreshPhotos.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+//            @Override
+//            public void onRefresh() {
+//
+//            }
+//        });
     }
 
     @Override

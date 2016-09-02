@@ -23,18 +23,28 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <GridView
-        android:id="@+id/gv_show_photos"
-        android:layout_width="match_parent"
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/srl_refresh_photos"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:horizontalSpacing="1dp"
-        android:verticalSpacing="1dp"
-        android:columnWidth="160dp"
-        android:numColumns="auto_fit"
-        android:stretchMode="columnWidth"
-        android:background="@drawable/bkg_07_july_vertical">
-    </GridView>
+        android:layout_width="match_parent"
+        android:layout_weight="1">
+
+        <GridView
+            android:id="@+id/gv_show_photos"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:horizontalSpacing="1dp"
+            android:verticalSpacing="1dp"
+            android:columnWidth="160dp"
+            android:numColumns="auto_fit"
+            android:stretchMode="columnWidth"
+            android:background="@color/white">
+        </GridView>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
 
 </LinearLayout>

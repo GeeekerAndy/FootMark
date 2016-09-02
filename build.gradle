@@ -18,6 +18,8 @@ allprojects {
         maven {
             url "https://jitpack.io"
         }
+        mavenCentral() // jcenter() works as well because it pulls from Maven Central
+
     }
 }
 

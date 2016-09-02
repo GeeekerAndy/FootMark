@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.text.InputType;
 import android.view.View;
@@ -26,6 +27,8 @@ import com.getbase.floatingactionbutton.FloatingActionsMenu;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.TimerTask;
+import java.util.concurrent.RunnableFuture;
 
 /**
  * 简介：FootMark是一款照片共享应用，用户创建/加入群组，创建/加入活动，同一群组成员共享活动照片
@@ -132,6 +135,14 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+//        //刷新活动
+//        SwipeRefreshLayout refreshActivities = (SwipeRefreshLayout)findViewById(R.id.srl_refresh_activities);
+//        refreshActivities.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+//            @Override
+//            public void onRefresh() {
+//
+//            }
+//        });
     }
 
     /**
