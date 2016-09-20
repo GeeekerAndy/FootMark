@@ -184,8 +184,8 @@ public class MainActivity extends AppCompatActivity
         String[] groupArray = new String[]{"2014.04", "2015.05", "2016.06"};
         //二级目录内容
         String[][] childItemArray = new String[][]{
-                {"群组a+活动1", "群组b+活动1", "群组c+活动1"},
-                {"群组a+活动2"}, {"群组b+活动2", "群组c+活动3"}};
+                {"一班 春游", "二班 聚餐", "八班 班会"},
+                {"高中同学 聚会"}, {"宿舍 过生日", "社团 活动"}};
         groupList = new ArrayList<>();
         for(int i = 0; i < groupArray.length; i++) {
             GroupEntity groupEntity = new GroupEntity(groupArray[i]);

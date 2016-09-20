@@ -27,11 +27,17 @@ public class ImageAdapter extends BaseAdapter {
     private int screenHeight;
 
     String[] imageUrl = {
-            "http://tse1.mm.bing.net/th?&id=OIP.M2d93668578a935c29c2c07a6b58afbc8o0&w=300&h=187&c=0&pid=1.9&rs=0&p=0&r=0",
-            "http://tse1.mm.bing.net/th?&id=OIP.M05aa60307f00a7a9fe37ca07147c6716o0&w=299&h=187&c=0&pid=1.9&rs=0&p=0&r=0",
-            "http://tse1.mm.bing.net/th?&id=OIP.M0dd8d2b4c3b691913db6e12e1626e6ffo0&w=300&h=187&c=0&pid=1.9&rs=0&p=0&r=0",
-            "http://tse3.mm.bing.net/th?id=OIP.M19ea9835ca39a8fb7f3b679cad54b089o0&w=265&h=175&c=7&rs=1&qlt=90&o=4&pid=1.1",
-            "http://tse1.mm.bing.net/th?id=OIP.M5d7250d8469f8deb786a864e008a11fao0&w=264&h=171&c=7&rs=1&qlt=90&o=4&pid=1.1",
+            "http://tse1.mm.bing.net/th?id=OIP.M0eeedbbb12636ff83c538dc9575e3a65o0&w=202&h=151&c=7&rs=1&qlt=90&o=4&pid=1.1",
+            "http://tse1.mm.bing.net/th?&id=OIP.M76e609bf7fdcd7faed7db89581f6cb45o0&w=299&h=200&c=0&pid=1.9&rs=0&p=0",
+            "http://tse1.mm.bing.net/th?&id=OIP.M23d172cd98029790fb6f16ec65d4de3eo0&w=299&h=200&c=0&pid=1.9&rs=0&p=0",
+            "http://tse3.mm.bing.net/th?id=OIP.M63319cee4cd5ef08c5ab64a03b792573o0&w=199&h=117&c=7&rs=1&qlt=90&o=4&pid=1.1",
+            "http://tse2.mm.bing.net/th?id=OIP.M9c34085316980c87fe11308300f0dcbdo0&w=189&h=135&c=7&rs=1&qlt=90&o=4&pid=1.1",
+            "http://tse1.mm.bing.net/th?&id=OIP.Mdf84cc41a8c0ee834934bab9896079a5H0&w=300&h=225&c=0&pid=1.9&rs=0&p=0",
+            "http://tse1.mm.bing.net/th?id=OIP.M9289b925cc73a11f33bc921cc0d4c549H0&w=190&h=140&c=7&rs=1&qlt=90&o=4&pid=1.1",
+            "http://tse1.mm.bing.net/th?&id=OIP.Me7d829199ad1168c21000d9d79771a85H0&w=300&h=200&c=0&pid=1.9&rs=0&p=0",
+            "http://cn.bing.com/s/loading_lg_w.gif",
+            "http://tse1.mm.bing.net/th?id=OIP.Md616772af62898c888e81bc78c152dbbH0&w=228&h=154&c=7&rs=1&qlt=90&o=4&pid=1.1",
+            "http://cn.bing.com/s/loading_lg_w.gif",
  };
 
 
